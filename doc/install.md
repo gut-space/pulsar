@@ -1,4 +1,4 @@
-# sigproc-4.3
+# sigproc-4.3 compilation on modern systems
 
 This description is accurate as of 2021-10-29. This will work on Ubuntu Linux for sure. You may try other distros or even MacOS or Windows if you feel adventurous.
  
