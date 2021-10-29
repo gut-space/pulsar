@@ -36,3 +36,10 @@ Explanation: the sigproc code is poorly written and defines the same variables m
 
 10. Compile: `make`
 
+# psrcat installation
+
+1. Extract the sources: `tar zxvf psrcat-upstream-1.59.tar.gz`
+
+2. edit file makeit and replace `gcc` with `gcc-9` in two places.
+
+3. Run `./makeit`
