@@ -26,7 +26,7 @@ FFLAGS=-c -ffixed-line-length-132 -fallow-argument-mismatch
 ```
 
 Explanation: by default Fortran77 requires the lines in source code to be no longer than 72 chars. This rule is broken in many places in the sigproc code.
-The lines above add extra compilation flag that says lines up to 132 chars are ok.
+The lines above add extra compilation flag that says lines up to 132 chars are ok. Also fixes problems with mismatching parameters.
 
 9. Edit makefile.linux (this is only needed on Ubuntu 21.04 or later)
 
