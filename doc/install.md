@@ -19,7 +19,7 @@ Tested on Ubuntu 20.04 and 21.04.
 8. Add the following to the makefile.linux:
 
 ```
-FFLAGS=-c -ffixed-line-length-132
+FFLAGS=-c -ffixed-line-length-132 -fallow-argument-mismatch
 
 %.o: %.f
 		$(F77) $(FFLAGS) -o $@ $<
