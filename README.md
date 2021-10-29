@@ -7,7 +7,7 @@ w warunkach amatorskich.
 
 ## Software
 
-[Instalacja](install) - opis instalacji środowiska
+[Instalacja](doc/install.md) - opis instalacji środowiska
 
 
 ## Hardware
