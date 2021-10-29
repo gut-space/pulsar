@@ -28,5 +28,11 @@ FFLAGS=-c -ffixed-line-length-132
 Explanation: by default Fortran77 requires the lines in source code to be no longer than 72 chars. This rule is broken in many places in the sigproc code.
 The lines above add extra compilation flag that says lines up to 132 chars are ok.
 
-8. Compile: `make`
+9. Edit makefile.linux (this is only needed on Ubuntu 21.04 or later)
+
+```CCC = gcc-9 -O2```
+
+Explanation: the sigproc code is poorly written and defines the same variables multiple times. See https://github.com/SixByNine/sigproc/issues/7 for details. As a workaround, we can compile it with gcc 9. The standard version in Ubuntu 21.04 (gcc 10) no longer turns a blind eye on this and fails compilation.
+
+10. Compile: `make`
 
