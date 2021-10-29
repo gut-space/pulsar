@@ -19,10 +19,10 @@ Tested on Ubuntu 20.04 and 21.04.
 8. Add the following to the makefile.linux:
 
 ```
-FLFLAGS=-ffixed-line-length-132
+FFLAGS=-c -ffixed-line-length-132
 
 %.o: %.f
-		$(F77) $(FLFLAGS) -o $@ $<
+		$(F77) $(FFLAGS) -o $@ $<
 ```
 
 Explanation: by default Fortran77 requires the lines in source code to be no longer than 72 chars. This rule is broken in many places in the sigproc code.
