@@ -4,6 +4,16 @@ Projekt Pulsar
 Niniejsze repozytorium jest poświęcone eksperymentowi mającemu na celu odbiór sygnału z pulsaru PSR 329+54
 w warunkach amatorskich.
 
+## Uczestnicy
+
+- prof.
+- Krzysiek
+- Rafał
+- Tomek Mrugalski (@tomaszmrugalski)
+
+## Zadania
+
+Listę zadań, nad którymi obecnie pracujemy można obejrzeć w zakładce [issues](https://github.com/gut-space/pulsar/issues).
 
 ## Software
 
