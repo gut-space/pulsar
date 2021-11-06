@@ -20,6 +20,7 @@ Listę zadań, nad którymi obecnie pracujemy można obejrzeć w zakładce [issu
 - [Instalacja psrcat](doc/install-psrcat.md) - psrcat to katalog pulsarów
 - [Instalacja sigproc](doc/install-sigproc.md) - sigproc to stary, ale wciąż potężny program do przetwarzania sygnałów, stworzony z myślą o pulsarach
 - [Instalacja GNU Radio + filterbank](doc/install-gnuradio-filterbank.md) - instalacja modułów do nagrywania plików filterbank w GR
+- [Konwersja na filterbank](https://github.com/gut-space/pulsar/issues/3)
 
 ## Hardware
 
