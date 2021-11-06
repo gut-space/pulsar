@@ -38,3 +38,5 @@ SyntaxError: Missing parentheses in call to 'print'. Did you mean print("No rx_t
 ```
 
 **Solution**: Edit fb_helper.py around line 473: add parentheses, so it look like this `print("No rx_time tag, start time will be approximate.")`. Do the same for grc_parser.py around line 65 (`print(line)`).
+
+All the fixes are now available here: https://github.com/tomaszmrugalski/pulsar_filterbank (python3_fix branch contains just the fix, the master also contains my other changes that may or may not make sense. I'm experimenting a lot).
