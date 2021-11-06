@@ -27,6 +27,7 @@ Obecnie trwają prace nad dwoma alternatywnymi systemami antenowymi do odbioru:
 
 - [Antena kierunkowa Yagi](https://github.com/gut-space/pulsar/issues/1)
 - [Antena cube corner](https://github.com/gut-space/pulsar/issues/2)
+- [Komputer do przetwarzania danych](https://github.com/gut-space/pulsar/issues/4)
 
 ## Obserwacje
 
