@@ -35,3 +35,4 @@ Obecnie trwają prace nad dwoma alternatywnymi systemami antenowymi do odbioru:
 - [2021-09-26](obs/2021-09-26.md) - yagi, RTL v3, 626MHz, 2.4MSPS
 - [2021-09-29](obs/2021-09-29.md) - yagi, AirSpy Mini, 633MHz, 3MSPS
 - [2021-10-24](obs/2021-10-24.md) - yagi, AirSpy Mini, 463MHz, 6MSPS
+- [fake](obs/fake.md) - wygenerowana obserwacja za pomocą programu `fake` z pakietu `sigproc`.
