@@ -229,3 +229,123 @@ This step generated `rfifind_time3_rfifind_zerodm.dat` file. It can be explored 
 
 ![fake-explore-fft](https://user-images.githubusercontent.com/663576/145278726-13128d2d-2c51-451c-bb9b-a88cfb652060.png)
 
+## Searching
+
+
+
+```
+$ accelsearch -numharm 4 -zmax 0 rfifind_time3_rfifind_zerodm.dat 
+
+
+    Fourier-Domain Acceleration and Jerk Search Routine
+                    by Scott M. Ransom
+
+Analyzing P: 714.000000000000 ms, DM: 715.662 data from 'rfifind_time3_rfifind_zerodm.dat'.
+
+Reading and FFTing the time series...done.
+Removing red-noise...done.
+
+Normalizing powers using median-blocks (default).
+
+Full f-fdot plane would need 0.00 GB: using in-memory accelsearch.
+
+Searching with up to 4 harmonics summed:
+  f = 1.0 to 6250.0 Hz
+  r = 30.0 to 191999.0 Fourier bins
+  z = 0.0 to 0.0 Fourier bins drifted
+
+Generating correlation kernels:
+  Harm  1/1 :     1 kernels,    0 < z < 0    (2048 pt FFTs)
+Total RAM used by correlation kernels:  0.000 GB
+Done generating kernels.
+
+Starting the search.
+
+Amount of search complete = 100%
+
+Done searching.  Now optimizing each candidate.
+
+Removed 9 likely harmonically related candidates.
+Amount of optimization complete = 100%
+width < len (14) in center_string(outstring, ' 0.3(2.2)x10^1', width=12)
+
+
+Searched the following approx numbers of independent points:
+  1 harmonic:      191969
+  2 harmonics:      95984
+  4 harmonics:      47992
+
+Timing summary:
+    CPU time: 0.040 sec (User: 0.040 sec, System: 0.000 sec)
+  Total time: 0.050 sec
+
+Final candidates in binary format are in 'rfifind_time3_rfifind_zerodm_ACCEL_0.cand'.
+Final Candidates in a text format are in 'rfifind_time3_rfifind_zerodm_ACCEL_0'.
+```
+
+Those two files (rfifind_time3_rfifind_zerodm_ACCEL_0 and rfifind_time3_rfifind_zerodm_ACCEL_0.cand) are super useful.
+
+Here's content of the rfifind_time3_rfifind_zerodm_ACCEL_0 file:
+
+```
+             Summed  Coherent  Num        Period          Frequency         FFT 'r'        Freq Deriv       FFT 'z'         Accel...........................
+Cand  Sigma  Power    Power    Harm        (ms)             (Hz)             (bin)           (Hz/s)         (bins)         (m/s^2)             Notes........
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+1     20.77  245.12   93.63     4         714(2)           1.400(4)        43.00(13)        0.0000(5)       0.00(50)    0.0(1.1)x10^5.........................
+2     4.23   23.53    18.53     1        23.028(9)         43.42(2)       1334.00(50)        0.000(2)       0.0(2.0)    0.0(1.5)x10^4     H 30 of Cand 1
+3     2.73   17.93    10.85     1      0.1691378(5)       5912.34(2)     181627.00(50)       0.000(2)       0.0(2.0)    0.0(1.1)x10^2.........................
+4     2.29   23.03     5.70     4       1.126647(5)       887.590(4)      27266.75(13)      0.0000(5)       0.00(50)    0.0(1.8)x10^2.........................
+
+
+                        Power /          Raw           FFT 'r'          Pred 'r'       FFT 'z'     Pred 'z'      Phase       Centroid     Purity........................
+Cand   Harm  Sigma      Loc Pow         Power           (bin)             (bin)         (bins)      (bins)       (rad)        (0-1)      <p> = 1           Notes........
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 1     1     21.83      242(22)          202          43.010(25)          43.00        0.09(20)      0.00       1.727(45)    0.487(13)   0.982(21)........................
+       2     0.00       0.27(73)        0.343          86.02(36)          86.00        0.2(1.3)      0.00       0.2(1.4)     0.12(39)    2.09(29).........................
+       3     8.14      36.2(8.5)        45.9          129.029(63)        129.00        0.28(48)      0.00       2.13(12)     0.421(34)   1.026(51)........................
+       4     0.63       1.3(1.6)        1.66          172.04(33)         172.00        0.4(2.5)      0.00       5.77(61)     0.39(18)    1.03(27).........................
+ 2     1     5.63      18.5(6.1)        27.2         1333.790(90)        1334.00      -0.53(70)      0.00       0.42(16)     0.480(47)   1.002(73)........................
+ 3     1     4.11      10.9(4.7)        19.3         181627.13(13)      181627.00     -1.7(1.2)      0.00       1.16(21)     0.506(62)   0.89(11).........................
+ 4     1     1.63       3.0(2.4)        2.52         27265.75(80)       27266.75      0.3(2.2)x10    0.00       3.90(41)     0.69(12)    0.28(64).........................
+       2     3.28       7.6(3.9)        6.57         54531.50(13)       54533.50       6.75(91)      0.00       5.37(26)     0.544(74)   1.10(10).........................
+       3     1.11       2.0(2.0)         2.8         81797.26(26)       81800.25       10.1(1.9)     0.00       1.80(50)     0.60(14)    1.06(21).........................
+       4     1.76       3.2(2.5)        2.72         109063.01(30)      109067.00      13.5(3.2)     0.00       5.01(39)     0.47(11)    0.73(24).........................
+
+
+ Data file name without suffix          =  rfifind_time3_rfifind_zerodm
+ Telescope used                         =  Parkes
+ Instrument used                        =  Unknown
+ Object being observed                  =  P: 714.000000000000 ms, DM: 715.662
+ J2000 Right Ascension (hh:mm:ss.ssss)  =  00:00:00.0000
+ J2000 Declination     (dd:mm:ss.ssss)  =  00:00:00.0000
+ Data observed by                       =  unset
+ Epoch of observation (MJD)             =  50000.000000000000000
+ Barycentered?           (1 yes, 0 no)  =  0
+ Number of bins in the time series      =  384000.....
+ Width of each time series bin (sec)    =  8e-05
+ Any breaks in the data? (1 yes, 0 no)  =  1
+ On/Off bin pair #  1                   =  0          , 374399.....
+ On/Off bin pair #  2                   =  383999     , 383999.....
+ Type of observation (EM band)          =  Radio
+ Beam diameter (arcsec)                 =  2518
+ Dispersion measure (cm-3 pc)           =  0
+ Central freq of low channel (MHz)      =  457.5625
+ Total bandwidth (MHz)                  =  6
+ Number of channels                     =  16
+ Channel bandwidth (MHz)                =  0.375
+ Data analyzed by                       =  thomson
+ Any additional notes:
+    Project ID unset, Date: 1995-10-10T00:00:00.
+    2 polns were summed.  Samples have 16 bits.
+```
+
+The most important lines are 1 and 2:
+
+```
+             Summed  Coherent  Num        Period          Frequency         FFT 'r'        Freq Deriv       FFT 'z'         Accel...........................
+Cand  Sigma  Power    Power    Harm        (ms)             (Hz)             (bin)           (Hz/s)         (bins)         (m/s^2)             Notes........
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+1     20.77  245.12   93.63     4         714(2)           1.400(4)        43.00(13)        0.0000(5)       0.00(50)    0.0(1.1)x10^5.........................
+```
+
+The prepdata found out that there is a signal with 714ms, which is exactly what was using during generation of this fake.fil
