@@ -4,7 +4,7 @@
 
 Tests conducted on Raspberry Pi 4 B with two storage options:
 
-- SD card: SanDisk SANDISK Ultra microSDXC 64GB 120MB/s
+- SD card: SanDisk SANDISK Ultra microSDXC 64GB 120MB/s (C10, U1, A1, exact model: SDSQUA4-064G-GN6MA).
 - External SSD disk: Samsung T5 500GB, with claimed rate of 540MB/s
 
 ```
