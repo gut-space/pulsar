@@ -12,6 +12,8 @@ Each test was designed to last 60 seconds, with the appropriate number of sample
 
 The SSD disk was completely empty. The SSD card had the Raspberry Pi system on it with some software. 12 out of 64GB was used.
 
+All commands were issued as root, to ensure maximum priority.
+
 ```
 cat /proc/cpuinfo
 
@@ -31,6 +33,24 @@ Hardware	: BCM2711
 Revision	: c03111
 Serial		: 1000000033692ec6
 Model		: Raspberry Pi 4 Model B Rev 1.1
+```
+
+Practical max. performance was measured with `dd` command that wrote 1GB of zeros.
+
+SD Card:
+```
+# dd if=/dev/zero of=/home/pi/zero.raw count=2000000
+2000000+0 records in
+2000000+0 records out
+1024000000 bytes (1.0 GB, 977 MiB) copied, 48.7694 s, 21.0 MB/s
+```
+
+SSD disk:
+```
+# dd if=/dev/zero of=/media/pi/Samsung_T5/zero.raw count=2000000
+2000000+0 records in
+2000000+0 records out
+1024000000 bytes (1.0 GB, 977 MiB) copied, 37.6617 s, 27.2 MB/s
 ```
 
 ### 1. AirSpy 3MSPS on SD Card
@@ -203,14 +223,426 @@ Average speed 5.5353 MSPS IQ
 done
 ```
 
-## 3. AirSpy 10MSPS on SD card
+### 3. AirSpy 10MSPS on SD card
 
 ```
+/home/pi# airspy_rx -r as_10M.raw -f 635 -a 10000000 -t 2 -v 14 -m 15 -l 14 -n 600000000
+Device Serial Number: 0xA74068C830933C93
+Stop with Ctrl-C
+Streaming at 10.019 MSPS
+Streaming at 9.992 MSPS
+Streaming at 9.937 MSPS
+Streaming at 8.831 MSPS
+Streaming at 7.526 MSPS
+Streaming at 7.526 MSPS
+Streaming at 7.526 MSPS
+Streaming at 6.231 MSPS
+Streaming at 8.079 MSPS
+Streaming at 8.998 MSPS
+Streaming at 8.365 MSPS
+Streaming at 8.095 MSPS
+Streaming at 8.095 MSPS
+Streaming at 8.095 MSPS
+Streaming at 6.684 MSPS
+Streaming at 6.684 MSPS
+Streaming at 7.371 MSPS
+Streaming at 8.635 MSPS
+Streaming at 9.298 MSPS
+Streaming at 8.276 MSPS
+Streaming at 8.276 MSPS
+Streaming at 8.276 MSPS
+Streaming at 8.276 MSPS
+Streaming at 7.957 MSPS
+Streaming at 8.935 MSPS
+Streaming at 8.935 MSPS
+Streaming at 8.935 MSPS
+Streaming at 8.086 MSPS
+Streaming at 9.194 MSPS
+Streaming at 9.570 MSPS
+Streaming at 9.570 MSPS
+Streaming at 8.488 MSPS
+Streaming at 9.019 MSPS
+Streaming at 9.019 MSPS
+Streaming at 8.926 MSPS
+Streaming at 8.926 MSPS
+Streaming at 8.038 MSPS
+Streaming at 8.977 MSPS
+Streaming at 8.617 MSPS
+Streaming at 7.527 MSPS
+Streaming at 7.527 MSPS
+Streaming at 6.313 MSPS
+Streaming at 8.287 MSPS
+Streaming at 8.682 MSPS
+Streaming at 8.365 MSPS
+Streaming at 8.365 MSPS
+Streaming at 8.365 MSPS
+Streaming at 8.088 MSPS
+Streaming at 8.783 MSPS
+Streaming at 8.391 MSPS
+Streaming at 8.391 MSPS
+Streaming at 8.391 MSPS
+Streaming at 7.289 MSPS
+Streaming at 8.594 MSPS
+Streaming at 8.468 MSPS
+Streaming at 8.468 MSPS
+Streaming at 8.468 MSPS
+Streaming at 7.864 MSPS
+Streaming at 8.079 MSPS
+Streaming at 8.710 MSPS
+Streaming at 8.710 MSPS
+Streaming at 8.710 MSPS
+Streaming at 7.780 MSPS
+Streaming at 8.845 MSPS
+Streaming at 8.806 MSPS
+Streaming at 8.806 MSPS
+Streaming at 7.998 MSPS
+Streaming at 8.957 MSPS
+Streaming at 8.897 MSPS
+Streaming at 8.570 MSPS
+Streaming at 8.570 MSPS
+Streaming at 8.570 MSPS
+Streaming at 8.570 MSPS
+Streaming at 7.613 MSPS
+Streaming at 8.760 MSPS
+Streaming at 9.347 MSPS
+Streaming at 9.441 MSPS
+Streaming at 9.441 MSPS
+Streaming at 8.268 MSPS
+Streaming at 8.393 MSPS
+Streaming at 9.122 MSPS
+Streaming at 9.122 MSPS
+Streaming at 9.122 MSPS
+Streaming at 8.035 MSPS
+Streaming at 8.729 MSPS
+Streaming at 7.438 MSPS
+Streaming at 7.438 MSPS
+Streaming at 7.438 MSPS
+Streaming at 6.181 MSPS
+Streaming at 8.187 MSPS
+Streaming at 9.053 MSPS
+Streaming at 9.053 MSPS
+Streaming at 8.706 MSPS
+Streaming at 7.624 MSPS
+Streaming at 8.766 MSPS
+Streaming at 8.664 MSPS
+Streaming at 8.664 MSPS
+Streaming at 8.664 MSPS
+Streaming at 8.664 MSPS
+Streaming at 7.108 MSPS
+Streaming at 8.502 MSPS
+Streaming at 8.593 MSPS
+Streaming at 9.262 MSPS
+Streaming at 8.882 MSPS
+Streaming at 8.703 MSPS
+Streaming at 8.400 MSPS
+Streaming at 8.400 MSPS
+Streaming at 8.400 MSPS
+Streaming at 8.400 MSPS
+Streaming at 8.009 MSPS
+Streaming at 8.982 MSPS
+Streaming at 8.982 MSPS
+Streaming at 8.982 MSPS
+Streaming at 8.545 MSPS
+Streaming at 9.237 MSPS
+Streaming at 9.382 MSPS
 
+User cancel, exiting...
+Total time: 116.0110 s
+Average speed 8.3668 MSPS IQ
+done
 ```
 
 ### 4. AirSpy 3MSPS on Samsung SSD
 
+```
+# airspy_rx -r as_3M.raw -f 635 -a 3000000 -t 2 -v 14 -m 15 -l 14 -n 180000000
+Device Serial Number: 0xA74068C830933C93
+Stop with Ctrl-C
+Streaming at 3.000 MSPS
+Streaming at 3.002 MSPS
+Streaming at 3.001 MSPS
+Streaming at 3.001 MSPS
+Streaming at 3.001 MSPS
+Streaming at 3.002 MSPS
+Streaming at 3.002 MSPS
+Streaming at 3.000 MSPS
+Streaming at 3.000 MSPS
+Streaming at 3.001 MSPS
+Streaming at 3.000 MSPS
+Streaming at 3.000 MSPS
+Streaming at 2.999 MSPS
+Streaming at 3.000 MSPS
+Streaming at 3.000 MSPS
+Streaming at 3.000 MSPS
+Streaming at 3.001 MSPS
+Streaming at 3.000 MSPS
+Streaming at 3.001 MSPS
+Streaming at 2.999 MSPS
+Streaming at 3.000 MSPS
+Streaming at 3.001 MSPS
+Streaming at 2.999 MSPS
+Streaming at 2.999 MSPS
+Streaming at 3.000 MSPS
+Streaming at 3.000 MSPS
+Streaming at 3.000 MSPS
+Streaming at 3.000 MSPS
+Streaming at 3.000 MSPS
+Streaming at 3.000 MSPS
+Streaming at 3.000 MSPS
+Streaming at 3.000 MSPS
+Streaming at 3.000 MSPS
+Streaming at 3.000 MSPS
+Streaming at 3.000 MSPS
+Streaming at 3.000 MSPS
+Streaming at 3.000 MSPS
+Streaming at 3.000 MSPS
+Streaming at 3.000 MSPS
+Streaming at 3.001 MSPS
+Streaming at 3.000 MSPS
+Streaming at 2.999 MSPS
+Streaming at 3.000 MSPS
+Streaming at 3.000 MSPS
+Streaming at 3.000 MSPS
+Streaming at 3.000 MSPS
+Streaming at 3.000 MSPS
+Streaming at 3.000 MSPS
+Streaming at 3.000 MSPS
+Streaming at 3.000 MSPS
+Streaming at 3.001 MSPS
+Streaming at 3.000 MSPS
+Streaming at 3.001 MSPS
+Streaming at 3.001 MSPS
+Streaming at 2.999 MSPS
+Streaming at 3.001 MSPS
+Streaming at 2.999 MSPS
+Streaming at 3.000 MSPS
+Streaming at 3.000 MSPS
+Streaming at 3.000 MSPS
+Streaming at 3.000 MSPS
+
+User cancel, exiting...
+Total time: 60.9824 s
+Average speed 3.0002 MSPS IQ
+done
+```
+
 ### 5. AirSpy 6MSPS on Samsung SSD
 
+```
+root@raspberrypi:/media/pi/Samsung_T5# airspy_rx -r as_6M.raw -f 635 -a 6000000 -t 2 -v 14 -m 15 -l 14 -n 360000000
+Device Serial Number: 0xA74068C830933C93
+Stop with Ctrl-C
+Streaming at 6.003 MSPS
+Streaming at 6.003 MSPS
+Streaming at 5.865 MSPS
+Streaming at 5.724 MSPS
+Streaming at 5.512 MSPS
+Streaming at 5.382 MSPS
+Streaming at 5.333 MSPS
+Streaming at 5.268 MSPS
+Streaming at 5.251 MSPS
+Streaming at 5.224 MSPS
+Streaming at 5.213 MSPS
+Streaming at 5.200 MSPS
+Streaming at 5.181 MSPS
+Streaming at 5.176 MSPS
+Streaming at 5.172 MSPS
+Streaming at 5.168 MSPS
+Streaming at 5.160 MSPS
+Streaming at 5.160 MSPS
+Streaming at 5.151 MSPS
+Streaming at 5.152 MSPS
+Streaming at 5.156 MSPS
+Streaming at 5.157 MSPS
+Streaming at 5.157 MSPS
+Streaming at 5.157 MSPS
+Streaming at 5.160 MSPS
+Streaming at 5.158 MSPS
+Streaming at 5.159 MSPS
+Streaming at 5.165 MSPS
+Streaming at 5.165 MSPS
+Streaming at 5.164 MSPS
+Streaming at 5.156 MSPS
+Streaming at 5.155 MSPS
+Streaming at 5.152 MSPS
+Streaming at 5.157 MSPS
+Streaming at 5.160 MSPS
+Streaming at 5.161 MSPS
+Streaming at 5.162 MSPS
+Streaming at 5.162 MSPS
+Streaming at 5.163 MSPS
+Streaming at 5.169 MSPS
+Streaming at 5.164 MSPS
+Streaming at 5.157 MSPS
+Streaming at 5.160 MSPS
+Streaming at 5.156 MSPS
+Streaming at 5.149 MSPS
+Streaming at 5.151 MSPS
+Streaming at 5.150 MSPS
+Streaming at 5.152 MSPS
+Streaming at 5.154 MSPS
+Streaming at 5.152 MSPS
+Streaming at 5.150 MSPS
+Streaming at 5.147 MSPS
+Streaming at 5.141 MSPS
+Streaming at 5.145 MSPS
+Streaming at 5.145 MSPS
+Streaming at 5.149 MSPS
+Streaming at 5.154 MSPS
+Streaming at 5.150 MSPS
+Streaming at 5.156 MSPS
+Streaming at 5.159 MSPS
+Streaming at 5.161 MSPS
+Streaming at 5.162 MSPS
+Streaming at 5.167 MSPS
+Streaming at 5.151 MSPS
+Streaming at 5.149 MSPS
+Streaming at 5.149 MSPS
+Streaming at 5.150 MSPS
+Streaming at 5.147 MSPS
+Streaming at 5.146 MSPS
+Streaming at 5.146 MSPS
+
+User cancel, exiting...
+Total time: 69.9960 s
+Average speed 5.2189 MSPS IQ
+done
+```
+
+
 ### 6. AirSpy 10MSPS on Samsung SSD
+
+```
+# airspy_rx -r as_10M.raw -f 635 -a 10000000 -t 2 -v 14 -m 15 -l 14 -n 600000000
+Device Serial Number: 0xA74068C830933C93
+Stop with Ctrl-C
+Streaming at 10.016 MSPS
+Streaming at 9.078 MSPS
+Streaming at 8.297 MSPS
+Streaming at 7.159 MSPS
+Streaming at 6.761 MSPS
+Streaming at 6.185 MSPS
+Streaming at 5.984 MSPS
+Streaming at 5.693 MSPS
+Streaming at 5.504 MSPS
+Streaming at 5.434 MSPS
+Streaming at 5.338 MSPS
+Streaming at 5.300 MSPS
+Streaming at 5.252 MSPS
+Streaming at 5.223 MSPS
+Streaming at 5.219 MSPS
+Streaming at 5.203 MSPS
+Streaming at 5.205 MSPS
+Streaming at 5.201 MSPS
+Streaming at 5.196 MSPS
+Streaming at 5.183 MSPS
+Streaming at 5.180 MSPS
+Streaming at 5.177 MSPS
+Streaming at 5.170 MSPS
+Streaming at 5.161 MSPS
+Streaming at 5.153 MSPS
+Streaming at 5.172 MSPS
+Streaming at 5.168 MSPS
+Streaming at 5.168 MSPS
+Streaming at 5.171 MSPS
+Streaming at 5.170 MSPS
+Streaming at 5.169 MSPS
+Streaming at 5.168 MSPS
+Streaming at 5.170 MSPS
+Streaming at 5.161 MSPS
+Streaming at 5.161 MSPS
+Streaming at 5.161 MSPS
+Streaming at 5.157 MSPS
+Streaming at 5.158 MSPS
+Streaming at 5.161 MSPS
+Streaming at 5.152 MSPS
+Streaming at 5.155 MSPS
+Streaming at 5.159 MSPS
+Streaming at 5.163 MSPS
+Streaming at 5.160 MSPS
+Streaming at 5.166 MSPS
+Streaming at 5.167 MSPS
+Streaming at 5.164 MSPS
+Streaming at 5.167 MSPS
+Streaming at 5.167 MSPS
+Streaming at 5.164 MSPS
+Streaming at 5.149 MSPS
+Streaming at 5.155 MSPS
+Streaming at 5.146 MSPS
+Streaming at 5.139 MSPS
+Streaming at 5.141 MSPS
+Streaming at 5.144 MSPS
+Streaming at 5.139 MSPS
+Streaming at 5.137 MSPS
+Streaming at 5.139 MSPS
+Streaming at 5.139 MSPS
+Streaming at 5.148 MSPS
+Streaming at 5.152 MSPS
+Streaming at 5.143 MSPS
+Streaming at 5.154 MSPS
+Streaming at 5.162 MSPS
+Streaming at 5.163 MSPS
+Streaming at 5.169 MSPS
+Streaming at 5.168 MSPS
+Streaming at 5.165 MSPS
+Streaming at 5.157 MSPS
+Streaming at 5.160 MSPS
+Streaming at 5.154 MSPS
+Streaming at 5.157 MSPS
+Streaming at 5.153 MSPS
+Streaming at 5.144 MSPS
+Streaming at 5.148 MSPS
+Streaming at 5.143 MSPS
+Streaming at 5.141 MSPS
+Streaming at 5.144 MSPS
+Streaming at 5.144 MSPS
+Streaming at 5.146 MSPS
+Streaming at 5.144 MSPS
+Streaming at 5.148 MSPS
+Streaming at 5.140 MSPS
+Streaming at 5.146 MSPS
+Streaming at 5.150 MSPS
+Streaming at 5.149 MSPS
+Streaming at 5.152 MSPS
+Streaming at 5.145 MSPS
+Streaming at 5.142 MSPS
+Streaming at 5.145 MSPS
+Streaming at 5.076 MSPS
+Streaming at 5.096 MSPS
+Streaming at 5.098 MSPS
+Streaming at 5.120 MSPS
+Streaming at 5.126 MSPS
+Streaming at 5.124 MSPS
+Streaming at 5.126 MSPS
+Streaming at 5.127 MSPS
+Streaming at 5.135 MSPS
+Streaming at 5.098 MSPS
+Streaming at 5.109 MSPS
+Streaming at 5.114 MSPS
+Streaming at 5.036 MSPS
+Streaming at 4.951 MSPS
+Streaming at 5.039 MSPS
+Streaming at 5.040 MSPS
+Streaming at 5.075 MSPS
+Streaming at 5.101 MSPS
+Streaming at 5.104 MSPS
+Streaming at 5.070 MSPS
+Streaming at 5.066 MSPS
+Streaming at 5.063 MSPS
+Streaming at 5.061 MSPS
+Streaming at 4.999 MSPS
+Streaming at 4.977 MSPS
+
+User cancel, exiting...
+Total time: 116.0130 s
+Average speed 5.3539 MSPS IQ
+done
+```
+
+## Useful links for further study
+
+- raspi SD host overclocking: https://forums.raspberrypi.com/viewtopic.php?p=930812
+- raspi SD host overclocking report (claims to increase performance from 21 to 42MB/sec): https://forums.raspberrypi.com/viewtopic.php?p=911543
+- Slow SSD 3.0 devices and how to fix this (my setup does not seem to be affected by this issue): https://forums.raspberrypi.com/viewtopic.php?f=28&t=245931
+
+
