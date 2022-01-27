@@ -82,6 +82,7 @@ def show_image(img, title):
 
 def write_noise_row(noise_csv_filename: str, noise_rows: str):
     out = open(noise_csv_filename, "w+")
+    out.write("#row, average noise")
     for n in noise_rows.keys():
         out.write(f"{n},{noise_rows[n]:.3f}\n")
     out.close()
