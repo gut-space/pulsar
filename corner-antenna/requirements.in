@@ -3,8 +3,13 @@
 # The following packages will likely be needed soon. But for the time being, let's
 # keep them commented out.
 
+# Required for reading image files and generating charts
+matplotlib
+
+# Required for reading the image files in a sane way
+python-opencv
+
 #orbit-predictor
 #DateTimeRange
-#matplotlib
 #typing-extensions
 #python-dateutil
