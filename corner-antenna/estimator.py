@@ -323,3 +323,12 @@ if __name__ == '__main__':
         plt.ylabel("Rate")
         plt.title("Noise rating for gaussian sigma")
         plt.show()
+
+
+# Example use:
+# estimator.py --lat 54 --lon 19 --aos "2022-01-24 20:43:02" --los "2022-01-24 20:50:53" \
+# --tle1 "1 28654U 05018A  22021.52701549  .00000032  00000+0  41452-4 0  9993" --tle2 "2 28654  98.9684  91.9731 0014554  30.4541 329.7473 14.12678946859327" \
+# 4930-product.png
+#
+# TODO: CSV needed with the following columns:
+# aos, los, tle1, tle2, filename
